@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { getTagColor, toRgba } from "$lib/tagColors";
+
   type Project = {
     slug: string;
     title: string;
@@ -49,7 +51,18 @@
         {#if project.tags?.length}
           <ul class="tags">
             {#each project.tags as tag}
-              <li>{tag}</li>
+              {@const color = getTagColor(tag)}
+              <li
+                style={`background-color: ${toRgba(
+                  color,
+                  0.18
+                )}; border-color: ${toRgba(color, 0.5)}; color: ${toRgba(
+                  color,
+                  0.95
+                )};`}
+              >
+                {tag}
+              </li>
             {/each}
           </ul>
         {/if}

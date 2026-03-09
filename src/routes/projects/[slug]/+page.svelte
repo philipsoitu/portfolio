@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { projects } from "$lib/projects";
+  import { getTagColor, toRgba } from "$lib/tagColors";
 
   $: slug = $page.params.slug;
   $: project = projects.find((item) => item.slug === slug);
@@ -17,7 +18,18 @@
         {#if project.tags?.length}
           <ul class="tags">
             {#each project.tags as tag}
-              <li>{tag}</li>
+              {@const color = getTagColor(tag)}
+              <li
+                style={`background-color: ${toRgba(
+                  color,
+                  0.18
+                )}; border-color: ${toRgba(color, 0.5)}; color: ${toRgba(
+                  color,
+                  0.95
+                )};`}
+              >
+                {tag}
+              </li>
             {/each}
           </ul>
         {/if}

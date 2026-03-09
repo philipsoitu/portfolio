@@ -1,6 +1,9 @@
-<main class="page">
-  <img src="/raccoon.jpg" alt="raccooon" />
+<script lang="ts">
+  import ProjectGrid from "$lib/ProjectGrid.svelte";
+  import { projects } from "$lib/projects";
+</script>
 
+<main class="page">
   <h1>Hello, I am Philip</h1>
 
   <p>I like to code sometimes. I also like raccoons</p>
@@ -10,6 +13,12 @@
     <a href="https://github.com/philipsoitu">Github</a>
     <a href="https://www.linkedin.com/in/philip-soitu/">Professional slop</a>
   </div>
+
+  <ProjectGrid
+    title="Projects"
+    subtitle="thingamabobs and doohickeys that i made"
+    {projects}
+  />
 </main>
 
 <style>
@@ -26,11 +35,13 @@
 
   .page {
     text-align: center;
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 2rem 3.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    width: min(100%, 1040px);
+    box-sizing: border-box;
   }
 
   p {

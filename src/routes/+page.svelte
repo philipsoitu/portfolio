@@ -11,7 +11,7 @@
   <div class="links">
     <a href="/SoituPhilipCV.pdf">CV</a>
     <a href="https://github.com/philipsoitu">Github</a>
-    <a href="https://www.linkedin.com/in/philip-soitu/">Professional slop</a>
+    <a href="https://www.linkedin.com/in/philip-soitu/">LinkedIn</a>
   </div>
 
   <ProjectGrid
